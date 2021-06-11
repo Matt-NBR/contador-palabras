@@ -1,7 +1,7 @@
 # Esta funcion lee el archivo pasado como parametro y devuelve su contenido
 # como lista de palabras
 def getFile(fileName):
-    file = open(fileName, 'r')
+    file = open(fileName, encoding='utf8')
     wordList = []
     line = file.readline()
     while line != "$":
@@ -12,7 +12,7 @@ def getFile(fileName):
     return wordList    
 # Se almacena la lista resultante en una variable
 # Se crea una lista vacia que sera util al momento de imprimir el resultado
-wordlist = getFile("Starwar.txt")
+wordlist = getFile("harry.txt")
 repetitionlist = []
 # Se itera en la lista de palabras
 for i in wordlist:
