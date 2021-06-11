@@ -1,0 +1,29 @@
+# Esta funcion lee el archivo pasado como parametro y devuelve su contenido
+# como lista de palabras
+def getFile(fileName):
+    file = open(fileName, 'r')
+    wordList = []
+    line = file.readline()
+    while line != "$":
+        for word in line.split():
+            wordList.append(word)
+        line = file.readline()
+    file.close()
+    return wordList    
+# Se almacena la lista resultante en una variable
+# Se crea una lista vacia que sera util al momento de imprimir el resultado
+wordlist = getFile("Starwar.txt")
+repetitionlist = []
+# Se itera en la lista de palabras
+for i in wordlist:
+    # Se agrega cada palabra a la lista vacia solo una vez
+    if (i not in repetitionlist):
+        repetitionlist.append(i)
+        print(i + ": ")
+        # Su utiliza un contador para contar las ocurrencias
+        counter = 0
+        for j in wordlist:
+            if (j == i):
+                counter += 1
+        # Se imprime el resultado
+        print(str(counter) + "\n")
